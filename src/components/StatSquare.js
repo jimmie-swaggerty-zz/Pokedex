@@ -25,7 +25,7 @@ const StatSquare = (props) => {
         //         <div className="namebar">{poke.id} - {poke.name}</div>
         //     </div>}
         // </div>
-        <div onClick={e=>{e.preventDefault(); navigate("/pokemon/"+poke.id)}}>
+        <div>
             {loaded && (
                 // <div className={"card "+poke.types[0].type.name+" statsquare"}>
                 <div className="card statsquare">

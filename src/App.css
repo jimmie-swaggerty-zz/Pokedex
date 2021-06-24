@@ -81,3 +81,49 @@
   display: inline;
   width: fit-content;
 }
+.hoverable {
+  background-color: grey;
+}
+
+.hoverable:hover {
+  background-color: red;
+}
+
+.pokepage {
+  border: 1px red solid;
+  justify-content: space-around;
+}
+.active {
+  background-color: red;
+}
+
+.label {
+  background-color: red;
+  color: white;
+  text-align: left;
+  padding: 5px;
+  border-radius: 0px 0px 5px 0px;
+}
+
+.stats {
+  display: inline-block;
+  width: 70%;
+  text-align: left;
+  border-radius: 5px;
+  border: 2px black solid;
+}
+
+.move, .ability {
+  background-color: grey;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  display: inline-block;
+  font-size:x-small;
+}
+
+.leftpan {
+  width: 25%;
+  display: inline-block;
+}

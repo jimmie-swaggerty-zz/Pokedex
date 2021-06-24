@@ -11,13 +11,16 @@ const PokePage = (props) => {
 
     useEffect(() => {
         // console.log(props.id);
-        axios.get("https://pokeapi.co/api/v2/pokemon/"+props.id).then((res) => {
+        axios.get("https://pokeapi.co/api/v2/pokemon/" + id).then((res) => {
             setPoke(res.data);
             console.log(res.data);
             setLoaded(true);
         });
-    }, [props.id]);
+    }, [id]);
     const sprites = poke.sprites;
+    const abilities = poke.abilities;
+    const moves = poke.moves;
+    console.log(abilities);
     return (
         // <div>
         //     {loaded && <div className="statsquare">
@@ -26,40 +29,51 @@ const PokePage = (props) => {
         //     </div>}
         // </div>
         <div>
-            {loaded &&
-                <div className="container-flex">
-                    <img
-                        src={sprites.front_default}
-                        className="card-img-top sprite"
-                        alt={poke.name}
-                    />
-                    <div className="card-body">
-                        <h5 className="card-title namebar">
+            {loaded && (
+                <div className="container-fluid pokepage">
+                    <div className="row">
+                        <div className="col">
+                            <img src={sprites.front_default} width="100%" alt={poke.name} />
                             {poke.id} - {poke.name}
-                        </h5>
-                        <p className="card-text">
-                            {loaded &&
-                                poke.types.map((type, index) => {
+                            <p>
+                                {poke.types.map((type, index) => {
                                     return (
-                                        <div className="typetag">
+                                        <div
+                                            className={
+                                                "typetag " + type.type.name
+                                            }
+                                        >
                                             {type.type.name}
                                         </div>
                                     );
                                 })}
-                        </p>
-                        <button
-                            type="button"
-                            className="btn btn-secondary"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                navigate("/pokemon/" + poke.id);
-                            }}
-                        >
-                            More Info
-                        </button>
+                            </p>
+                        </div>
+                        <div className="col-8">
+                            <p className="stats">
+                                <span className="label">Abilities: </span>
+                                {abilities.map((ability, index) => {
+                                    return (
+                                        <span className="ability">
+                                            {ability.ability.name}{" "}
+                                        </span>
+                                    );
+                                })}
+                            </p>
+                            <p className="stats">
+                                <span className="label">Moves: </span>
+                                {moves.map((move, index) => {
+                                    return (
+                                        <span className="move">
+                                            {move.move.name}{" "}
+                                        </span>
+                                    );
+                                })}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            }
+            )}
         </div>
     );
 };
