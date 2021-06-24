@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { navigate, Link } from "@reach/router";
+import "./StatSquare.css";
 // import DeleteButton from '../components/DeleteButton'
 // import Moment from 'moment'
 
@@ -13,10 +14,9 @@ const StatSquare = (props) => {
         // console.log(props.id);
         axios.get(url).then((res) => {
             setPoke(res.data);
-            console.log(res.data);
             setLoaded(true);
         });
-    }, []);
+    }, [url]);
     const sprites = poke.sprites;
     return (
         // <div>
@@ -25,29 +25,36 @@ const StatSquare = (props) => {
         //         <div className="namebar">{poke.id} - {poke.name}</div>
         //     </div>}
         // </div>
-        <div>
+        <div onClick={e=>{e.preventDefault(); navigate("/pokemon/"+poke.id)}}>
             {loaded && (
-                <div class="card statsquare">
+                // <div className={"card "+poke.types[0].type.name+" statsquare"}>
+                <div className="card statsquare">
+                    <span className="pokeid">{poke.id}</span>
                     <img
                         src={sprites.front_default}
                         className="card-img-top sprite"
                         alt={poke.name}
                     />
-                    <div class="card-body">
-                        <h5 class="card-title namebar">
-                            {poke.id} - {poke.name}
-                        </h5>
-                        <p class="card-text">
+                    <div className="card-body">
+                        <p className="card-title namebar">
+                            {poke.name}
+                        </p>
+                        <div className="card-text">
                             {loaded &&
                                 poke.types.map((type, index) => {
                                     return (
-                                        <div className="typetag">
+                                        <div
+                                            className={
+                                                "typetag " + type.type.name
+                                            }
+                                            key={index}
+                                        >
                                             {type.type.name}
                                         </div>
                                     );
                                 })}
-                        </p>
-                        <button
+                        </div>
+                        {/* <button
                             type="button"
                             className="btn btn-secondary"
                             onClick={(e) => {
@@ -56,7 +63,7 @@ const StatSquare = (props) => {
                             }}
                         >
                             More Info
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             )}

@@ -8,27 +8,19 @@ import StatSquare from "./StatSquare";
 const PokeList = (props) => {
     const [pokes, setPokes] = useState([]);
     const [loaded, setLoaded] = useState(false);
-    const [param, setParam] = useState("limit=150");
-    const gens = [{ name: "1st Generation", param: "limit=150" },
-{name: "2nd Generation", param: "limit=100&offset=151"}];
+    const { gen } = props;
 
     useEffect(() => {
-        axios.get("https://pokeapi.co/api/v2/pokemon?"+param)
-        // axios.get("https://pokeapi.co/api/v2/pokemon?offset=151&limit=100")
+        axios
+            .get(gen.url)
             .then((res) => {
                 setPokes(res.data.results);
-                console.log(res.data.results)
                 setLoaded(true);
-        }, [param]);
-    });
+            });
+    }, [gen]);
 
     return (
         <div className="container">
-            <div className="row-flex">
-                {gens.map((gen, idx) => {
-                    return <button type="button" className="btn btn-primary" onClick={(e)=>{e.preventDefault(); setParam(gen.param)}}>{gen.name}</button>;
-                })}
-            </div>
             <div className="row-flex">
                 {loaded &&
                     pokes.map((poke, index) => {

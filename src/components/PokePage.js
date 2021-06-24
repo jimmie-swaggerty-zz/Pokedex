@@ -16,7 +16,7 @@ const PokePage = (props) => {
             console.log(res.data);
             setLoaded(true);
         });
-    }, []);
+    }, [props.id]);
     const sprites = poke.sprites;
     return (
         // <div>
@@ -26,18 +26,18 @@ const PokePage = (props) => {
         //     </div>}
         // </div>
         <div>
-            {loaded && (
-                <div class="container-flex">
+            {loaded &&
+                <div className="container-flex">
                     <img
                         src={sprites.front_default}
                         className="card-img-top sprite"
                         alt={poke.name}
                     />
-                    <div class="card-body">
-                        <h5 class="card-title namebar">
+                    <div className="card-body">
+                        <h5 className="card-title namebar">
                             {poke.id} - {poke.name}
                         </h5>
-                        <p class="card-text">
+                        <p className="card-text">
                             {loaded &&
                                 poke.types.map((type, index) => {
                                     return (
@@ -59,7 +59,7 @@ const PokePage = (props) => {
                         </button>
                     </div>
                 </div>
-            )}
+            }
         </div>
     );
 };
