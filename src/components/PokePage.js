@@ -32,7 +32,7 @@ const PokePage = (props) => {
             {loaded && (
                 <div className="container-fluid pokepage">
                     <div className="row">
-                        <div className="col">
+                        <div className="col leftpan">
                             <img src={sprites.front_default} width="100%" alt={poke.name} />
                             {poke.id} - {poke.name}
                             <p>
@@ -49,7 +49,7 @@ const PokePage = (props) => {
                                 })}
                             </p>
                         </div>
-                        <div className="col-8">
+                        <div className="col-8 rightpan">
                             <p className="stats">
                                 <span className="label">Abilities: </span>
                                 {abilities.map((ability, index) => {

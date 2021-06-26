@@ -90,8 +90,8 @@
 }
 
 .pokepage {
-  border: 1px red solid;
   justify-content: space-around;
+  margin-top: 30px;
 }
 .active {
   background-color: red;
@@ -121,9 +121,4 @@
   margin: 5px;
   display: inline-block;
   font-size:x-small;
-}
-
-.leftpan {
-  width: 25%;
-  display: inline-block;
 }
