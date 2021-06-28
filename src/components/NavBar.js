@@ -1,12 +1,12 @@
 import React from "react";
 import { Generations } from "../Reference/Generations";
-import { navigate } from "@reach/router";
+import {NavLink} from 'react-router-dom'
 
 const NavBar = (props) => {
     const { setGen } = props;
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-red">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                     PokeDex
@@ -26,40 +26,16 @@ const NavBar = (props) => {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="/home">Home</a>
+                            <NavLink className="nav-link" to="/home">Home</NavLink>
                         </li>
-                        <li class="navitem dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                id="navbarScrollingDropdown"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                By Generation
-                            </a>
-                            <ul
-                                class="dropdown-menu"
-                                aria-labelledby="navbarScrollingDropdown"
-                            >
-                                {Generations.map((gen, idx) => {
-                                    return (
-                                        <li className="navitem">
-                                            <div
-                                                type="button"
-                                                key={idx}
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    setGen(gen);
-                                                    console.log(gen.url);
-                                                }}
-                                            >
-                                                {gen.name}
-                                            </div>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/pokemon">All Pokemon</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/generation">By Generation</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/type">By Type</NavLink>
                         </li>
                     </ul>
                 </div>

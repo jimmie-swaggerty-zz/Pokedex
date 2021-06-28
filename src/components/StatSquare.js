@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { navigate, Link } from "@reach/router";
-import "./StatSquare.css";
 // import DeleteButton from '../components/DeleteButton'
 // import Moment from 'moment'
 

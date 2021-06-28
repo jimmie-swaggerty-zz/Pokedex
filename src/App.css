@@ -53,11 +53,6 @@
   border-radius: 10px;
 }
 
-.pokedex {
-  display: inline-flex;
-  margin: 10px;
-}
-
 .typetag {
   display: inline-block;
   padding: 5px;
@@ -121,4 +116,57 @@
   margin: 5px;
   display: inline-block;
   font-size:x-small;
+}
+
+.bg-red {
+  background-color:red;
+  color: white;
+}
+
+a.bg-red:hover {
+  background-color: tomato;
+}
+
+.bg-default{
+  background-color:darkgray;
+  color: white;
+}
+
+.bg {
+  background-image: url('./imgs/pokeball-white.png');
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position-x: 115%;
+  background-position-y: center;
+}
+.card {
+  padding: 30px;
+  font-size: 90%;
+  border-radius: 10px;
+  text-align: left;
+  color: white;
+  margin: 5px 0px;
+}
+
+h2 {
+  text-align: left;
+  display: block;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 5px 0px;
+}
+
+a {
+ text-decoration: none;
+}
+a:hover {
+  color: white
+}
+
+div.hide {
+  display: none;
+}
+
+h2.hide {
+background-color: red;
 }
