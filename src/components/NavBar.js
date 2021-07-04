@@ -26,7 +26,7 @@ const NavBar = (props) => {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/home">Home</NavLink>
+                            <NavLink className="nav-link" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/pokemon">All Pokemon</NavLink>
@@ -36,6 +36,9 @@ const NavBar = (props) => {
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/type">By Type</NavLink>
+                        </li>
+                        <li>
+                        <NavLink className="nav-link" to="/login">Login</NavLink>
                         </li>
                     </ul>
                 </div>

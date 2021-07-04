@@ -7,20 +7,20 @@ const PokeList = (props) => {
     const [pokes, setPokes] = useState([]);
     const [navs, setNavs] = useState([]);
     const [loaded, setLoaded] = useState(false);
-    const {type} = props
+    const {title} = props
     const {name} = useParams()
-    const { path, url } = useRouteMatch()
-    const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/"+type+name);
+    // const { path, url } = useRouteMatch()
+    const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon/");
     console.log("currentURL"+currentUrl)
 
     useEffect(() => {
         axios.get(currentUrl).then((res) => {
-            console.log(res.data.pokemon_species)
-            setPokes(res.data.pokemon_species);
+            console.log(res.data.results)
+            setPokes(res.data.results);
             setNavs(res.data);
             setLoaded(true);
         });
-    }, []);
+    }, [currentUrl]);
 
     const backClickHandler = (e) => {
         e.preventDefault();
@@ -33,11 +33,12 @@ const PokeList = (props) => {
         }
     };
 
+    const compTitle = name || title
     return (
         <div>
             <h2 className="bg bg-default">
 
-                {name.slice(0, 1).toUpperCase() + name.slice(1)}
+                {compTitle.slice(0, 1).toUpperCase() + compTitle.slice(1)}
             </h2>
             <div className="row">
                 {loaded &&

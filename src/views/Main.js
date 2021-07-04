@@ -1,8 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import MyPoke from "../components/MyPoke";
 const Main = (props) => {
+
+    const {myPoke, updateMyPoke} = props
     return (
         <div className="container-fluid">
+            <MyPoke myPoke={myPoke} updateMyPoke={updateMyPoke}/>
             <h2 className="bg bg-default">Search by...</h2>
             <div className="row">
                 <div className="col-4">
